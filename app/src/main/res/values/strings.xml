@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">AndroidProject</string>
+    <string name="login">Sign in</string>
+    <string name="content_description">Image</string>
+    <string name="text_holder">TextHolder</string>
+    <string name="search_button">Search</string>
+    <string name="search_hint">Your search</string>
+</resources>
