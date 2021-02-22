@@ -43,7 +43,6 @@ public class HomeActivity extends AppCompatActivity implements ArticleListener {
 
     }
 
-
     @Override
     public void onViewArticle(Article article) {
 

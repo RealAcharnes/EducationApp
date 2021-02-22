@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "31046543181",
+    "firebase_url": "https://appand-d9e16-default-rtdb.firebaseio.com",
+    "project_id": "appand-d9e16",
+    "storage_bucket": "appand-d9e16.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:31046543181:android:b28098176c707b1df03904",
+        "android_client_info": {
+          "package_name": "com.example.androidproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "31046543181-li2thu4lfu2d6uasauf6c1fqah47noq3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJvTKqk3JY8HvrFacA4YmOQjFB2Y6Tsr0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "31046543181-li2thu4lfu2d6uasauf6c1fqah47noq3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:31046543181:android:91d53c7a85bc864af03904",
+        "android_client_info": {
+          "package_name": "com.horhaj.login"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "31046543181-li2thu4lfu2d6uasauf6c1fqah47noq3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJvTKqk3JY8HvrFacA4YmOQjFB2Y6Tsr0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "31046543181-li2thu4lfu2d6uasauf6c1fqah47noq3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
