@@ -71,7 +71,7 @@ public class Register extends AppCompatActivity {
                     return;
                 }
                 if (password.length() < 6){
-                    mPassword.setError("Le mot de passe doit contenire plus de 6 caractéres");
+                    mPassword.setError("Le mot de passe doit contenir plus de 6 caractères");
                     return;
                 }
                 //progressBar.setVisibility(View.VISIBLE);
@@ -82,7 +82,7 @@ public class Register extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()){
-                            Toast.makeText(Register.this, "Un utilisateur a été Crée", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Register.this, "Un utilisateur a été crée", Toast.LENGTH_SHORT).show();
                             userID = fAuth.getCurrentUser().getUid();
                             DocumentReference documentReference = fStore.collection("users").document(userID);
                             Map<String, Object> user = new HashMap<>();
@@ -91,7 +91,7 @@ public class Register extends AppCompatActivity {
                             documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void aVoid) {
-                                    Log.d(TAG, "On Success: Le profil utilisateur est créer pour l'ID: " + userID);
+                                    Log.d(TAG, "On Success: Le profil utilisateur est créé pour l'ID: " + userID);
                                 }
                             }).addOnFailureListener(new OnFailureListener() {
                                 @Override

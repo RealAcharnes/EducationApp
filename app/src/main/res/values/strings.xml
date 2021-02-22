@@ -5,4 +5,5 @@
     <string name="text_holder">TextHolder</string>
     <string name="search_button">Search</string>
     <string name="search_hint">Your search</string>
+    <string name="votre_profil">Votre Profil</string>
 </resources>

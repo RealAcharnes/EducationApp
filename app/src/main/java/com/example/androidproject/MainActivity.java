@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     public void share(View view) {
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.setType("text/plain");
-        String value = "www.googele.com";
+        String value = "www.google.com";
         intent.putExtra(Intent.EXTRA_TEXT, value);
         startActivity(Intent.createChooser(intent,"share via"));
     }

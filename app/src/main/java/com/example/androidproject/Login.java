@@ -57,7 +57,7 @@ public class Login extends AppCompatActivity {
                     return;
                 }
                 if (password.length() < 6 ){
-                    mPassword.setError("Le mot de passe doit contenire plus de 6 caractéres");
+                    mPassword.setError("Le mot de passe doit contenir plus de 6 caractères");
                     return;
                 }
                 progressBar.setVisibility(View.VISIBLE);
@@ -68,7 +68,7 @@ public class Login extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()){
-                            Toast.makeText(Login.this, "Vous étes connecté", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Login.this, "Vous êtes connecté", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(getApplicationContext(), HomeActivity.class));
                             progressBar.setVisibility(View.GONE);
                         }else {
@@ -93,24 +93,24 @@ public class Login extends AppCompatActivity {
             public void onClick(View v) {
                 EditText resetMail = new EditText(v.getContext());
                 AlertDialog.Builder passwordResetDialog = new AlertDialog.Builder(v.getContext());
-                passwordResetDialog.setTitle("Réinitialisé le mot de passe ? ");
-                passwordResetDialog.setMessage("Enterez l'email ");
+                passwordResetDialog.setTitle("Réinitialiser le mot de passe ? ");
+                passwordResetDialog.setMessage("Entrer l'email ");
                 passwordResetDialog.setView(resetMail);
 
                 passwordResetDialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        //extraire lemail et envoyer le link de reset
+                        //extraire l'email et envoyer le link de reset
                         String mail =resetMail.getText().toString();
                         fAuth.sendPasswordResetEmail(mail).addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void aVoid) {
-                                Toast.makeText(Login.this, "Lien de réinitialisation a été envoyé a l'email", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(Login.this, "Lien de réinitialisation a été envoyé à l'email", Toast.LENGTH_SHORT).show();
                             }
                         }).addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {
-                                Toast.makeText(Login.this, "Erreur! la réinitialisation a échoué" + e.getMessage(), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(Login.this, "Erreur! La réinitialisation a échoué" + e.getMessage(), Toast.LENGTH_SHORT).show();
                             }
                         });
                     }
@@ -119,7 +119,7 @@ public class Login extends AppCompatActivity {
                 passwordResetDialog.setNegativeButton("No", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        // fermer le dialog
+                        // fermer le dialogue
                     }
                 });
                 passwordResetDialog.create().show();
