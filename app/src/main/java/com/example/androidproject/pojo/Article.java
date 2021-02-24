@@ -9,19 +9,19 @@ import com.google.gson.annotations.SerializedName;
 public class Article {
 
     @SerializedName("_index")
-    //@Expose
+    @Expose
     private String index;
     @SerializedName("_type")
-    //@Expose
+    @Expose
     private String type;
     @SerializedName("_id")
-    //@Expose
+    @Expose
     private String id;
     @SerializedName("_score")
-    //@Expose
+    @Expose
     private double score;
     @SerializedName("_source")
-    //@Expose
+    @Expose
     private Source source;
 
     public String getIndex() {
