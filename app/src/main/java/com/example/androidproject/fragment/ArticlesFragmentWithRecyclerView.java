@@ -65,7 +65,7 @@ public class ArticlesFragmentWithRecyclerView extends Fragment implements Articl
         if (getArguments() != null) {
             mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
         }
-
+        /** We get the date stored in the bundle of the previous intent, here we get the search input of the user. **/
         final Intent intent = getActivity().getIntent();
         if(null != intent){
             final Bundle extras = intent.getExtras();
@@ -93,6 +93,10 @@ public class ArticlesFragmentWithRecyclerView extends Fragment implements Articl
         View view = inflater.inflate(R.layout.fragment_articles_with_recycler_view_list, container, false);
 
         this.articles = new ArrayList<>();
+        /**
+         * Here we get all we need, the context, the recycler view, the progress barr, the edits text,
+         * and the button. Then we create our View Adapter from our class MyArticleRecyclerViewAdapter.
+         **/
         Context context = view.getContext();
         mRecyclerView = (RecyclerView) view.findViewById(R.id.list);
         mProgressBar = view.findViewById(R.id.loadingPanel);
@@ -112,7 +116,12 @@ public class ArticlesFragmentWithRecyclerView extends Fragment implements Articl
         mRecyclerView.setAdapter(new MyArticleRecyclerViewAdapter(articles, mArticleListener));
     }
 
-
+    /**
+     * Here we create a function to get the data from the API CORE,
+     * we create an handle for the RetrofitInstance interface, then we call our function from this interface.
+     * if the request is successful and we got the data we call the update function.
+     * If there is a problem with the request, a toast is display to warn the user.
+     */
     public void retrieveData(){
 
         /*Create handle for the RetrofitInstance interface*/
@@ -121,11 +130,11 @@ public class ArticlesFragmentWithRecyclerView extends Fragment implements Articl
         call.enqueue(new Callback<Infos>() {
             @Override
             public void onResponse(@NotNull Call<Infos> call, @NotNull Response<Infos> response) {
-                Log.i("myTagJC", response.body().toString());
                 List<Article> articles = response.body().getArticle();
                 updateData(articles);
 
                 if(null != mArticleListener && null != articles) onArticleRetrieved(articles);
+
 
             }
 
@@ -138,6 +147,13 @@ public class ArticlesFragmentWithRecyclerView extends Fragment implements Articl
 
     }
 
+    /**
+     * In this function we add the list of article to our local variable, then we disable the progress bar
+     * because the loading is finished and we display the ViewList.
+     *
+     * We set a button  for the user search bar with a click listener.
+     * @param articlesRetrieved the list of the article we got from the API call
+     */
     public void updateData(List<Article> articlesRetrieved){
         articles.addAll(articlesRetrieved);
         adapter.notifyDataSetChanged();
@@ -157,6 +173,11 @@ public class ArticlesFragmentWithRecyclerView extends Fragment implements Articl
 
     }
 
+    /**
+     * On click of the search button, we put the variable into Preferences and we start the activity
+     * with this String in parameter.
+     * @param v the view
+     */
     @Override
     public void onClick(View v) {
         String userInput;
@@ -170,6 +191,11 @@ public class ArticlesFragmentWithRecyclerView extends Fragment implements Articl
 
     }
 
+    /**
+     * The getHomeIntent function is used to create the bundle with the search input we want to store.
+     * @param userSearch the input search of the user
+     * @return the Intent
+     */
     private Intent getHomeIntent(String userSearch){
         Intent intent = new Intent(getActivity(), HomeActivity.class);
         final Bundle extras = new Bundle();

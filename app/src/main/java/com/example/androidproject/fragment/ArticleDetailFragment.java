@@ -68,8 +68,6 @@ public class ArticleDetailFragment extends Fragment implements View.OnClickListe
         //Set the description
         ((TextView) view.findViewById(R.id.articleDescriptionTextView)).setText(mDescription);
 
-        //((Button) view.findViewById(R.id.tweetReplyButton)).setOnClickListener(this);
-
         return view;
     }
 

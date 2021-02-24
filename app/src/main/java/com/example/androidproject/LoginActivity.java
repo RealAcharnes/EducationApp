@@ -12,6 +12,9 @@ import com.example.androidproject.utils.Constants;
 
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
+    /**
+     * This class handle the login and the sign in button
+     */
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

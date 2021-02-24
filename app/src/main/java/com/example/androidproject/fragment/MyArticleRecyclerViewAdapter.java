@@ -23,19 +23,24 @@ public class MyArticleRecyclerViewAdapter extends RecyclerView.Adapter<MyArticle
     private final ArticleListener mListener;
     private Context mContext;
 
+    /**
+     * This class is the recycler view adapter. We extends this class with our custom ViewHolder class.
+     */
     public MyArticleRecyclerViewAdapter(List<Article> items, ArticleListener listener) {
         this.mValues = items;
         this.mListener = listener;
     }
 
 
-
+    /**
+     * ViewHolder is the class for the custom Adapter to use the recycler view.
+     * We set the view, and the characteristics of the article :  Title, description and score
+     */
     public class ViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
         public final TextView title;
         public final TextView description;
         public final TextView score;
-        //public ImageView image;
         public Article mArticle;
 
         public ViewHolder(View view) {
@@ -45,10 +50,12 @@ public class MyArticleRecyclerViewAdapter extends RecyclerView.Adapter<MyArticle
             description = (TextView) view.findViewById(R.id.articleListItemDescriptionTextView);
             score = (TextView) view.findViewById(R.id.articleListItemScoreTextView);
 
+
             view.setOnClickListener((v)->{
                 if(mListener!=null) mListener.onViewArticle(mArticle);
                 }
             );
+
 
         }
 
@@ -58,6 +65,10 @@ public class MyArticleRecyclerViewAdapter extends RecyclerView.Adapter<MyArticle
         }
     }
 
+    /**
+     * This function inflate the layout with the list of articles
+     * @return the ViewHolder with the view
+     */
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -67,6 +78,12 @@ public class MyArticleRecyclerViewAdapter extends RecyclerView.Adapter<MyArticle
         return new ViewHolder(view);
     }
 
+    /**
+     * This function set the title, the description and the score from the data in our pojos.
+     * The description is cut if it is too long, the user has the opportunity to click on the artcile to have more detail.
+     * @param holder the holder for the recycler view
+     * @param position the position of the article in the list
+     */
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         final Article article = (Article) mValues.get(position);
